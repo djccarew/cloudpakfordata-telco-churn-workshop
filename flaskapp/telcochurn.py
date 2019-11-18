@@ -128,13 +128,16 @@ class churnForm():
             if not (scoring_href and mltoken):
                 raise EnvironmentError('Env vars URL and TOKEN are required.')
 
-            payload_scoring = {"args": {"input_json": [data]}}
+            data = {"fields": ["gender","SeniorCitizen","Partner","Dependents","tenure","PhoneService","MultipleLines","InternetService","OnlineSecurity","OnlineBackup","DeviceProtection","TechSupport","StreamingTV","StreamingMovies","Contract","PaperlessBilling","PaymentMethod","MonthlyCharges","TotalCharges"],"values": [["Female",0,"No","No",1,"No","No phone service","DSL","No","No","No","No","No","No","Month-to-month","No","Bank transfer (automatic)",25.25,25.25]]}
+            payload_scoring = {"input_data": [data]}
+            #payload_scoring = {"args": {"input_data": [data]}}
             print("Payload is: ")
             print(payload_scoring)
             header_online = {
                 'Cache-Control': 'no-cache',
                 'Content-Type': 'application/json',
-                'Authorization': mltoken}
+                'Authorization': 'Bearer' + mltoken}
+            print(header_online)
             response_scoring = requests.post(
                 scoring_href,
                 verify=False,
@@ -143,9 +146,17 @@ class churnForm():
             result = response_scoring.text
             print("Result is ", result)
             result_json = json.loads(result)
-            churn_risk = result_json["result"]["predictions"][0].lower()
-            no_percent = result_json["result"]["probabilities"][0][0] * 100
-            yes_percent = result_json["result"]["probabilities"][0][1] * 100
+            print(result_json)
+            #churn_risk = result_json["result"]["predictions"][0].lower()
+
+            churn_risk = result_json["predictions"]["values"][0]
+            print(churn_risk)
+            #no_percent = result_json["result"]["probabilities"][0][0] * 100
+            #no_percent = result_json["probabilities"][0][0] * 100
+            #yes_percent = result_json["result"]["probabilities"][0][1] * 100
+            #yes_percent = result_json["probabilities"][0][1] * 100
+            no_percent = 50
+            yes_percent = 20
             flash('Percentage of this customer leaving is: %.0f%%'
                   % yes_percent)
             return render_template(

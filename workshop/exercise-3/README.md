@@ -238,9 +238,9 @@ Copy the `env.sample` file to `.env`.
 cp env.sample .env
 ```
 
-Edit `.env` to reference the `URL` and `TOKEN`.
+Edit `.env` to reference the `URL` and `TOKEN` obtained during previous [Testing](#3-testing-the-model)
 
-* `URL` is your web service URL for scoring.
+* `URL` is your web service URL for scoring
 * `TOKEN` is your deployment access token.
 
 ```bash
