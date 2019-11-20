@@ -44,15 +44,18 @@ Section `1.0 Install required packages` will show the libraries that come pre-in
 
 #### Add the data set to the notebook
 
-Section `2.0 Load and Clean data` will load the virtualized data from the previous exercise. Highlight the cell labelled `# Place cursor ...` by clicking on it. Click on the *10/01* button to select a specific data set. Choose The *Remote* tab, and pick the virtualized data set that has all three joined tables (i.e. `User999.billing+products+customers`), and opt to insert the data as a *Pandas DataFrame*.
+In section `2.0 Load and Clean data` you will load data from your locally cloned/downloaded github repo.
+Highlight the cell labelled `# Place cursor ...` by clicking on it. Click on the *10/01* button to select a specific data set.
+Choose `browse` and navigate to where you cloned this repository, then to `data/merged/WA_Fn-UseC_-Telco-Customer-Churn.csv` and choose `WA_Fn-UseC_-Telco-Customer-Churn.csv`, then click `Next`.
+Choose The *Files* tab, and pick the data set that you have uploaded `WA_Fn-UseC_-Telco-Customer-Churn.csv`, and opt to insert the data as a *Pandas DataFrame*.
 
-![Add the data as a Pandas DataFrame](../.gitbook/assets/images/wml/wml-4-add-dataframe.png)
+![Add the data as a Pandas DataFrame](../.gitbook/assets/images/wml/uploadFileInsertToCode.png)
 
 By adding data a block of code will be added to the notebook. The code will automatically load that data set and create a Pandas DataFrame.
 
-![Generated code to handle Pandas DataFrame](../.gitbook/assets/images/wml/wml-5-generated-code-dataframe.png)
+> **IMPORTANT**: Don't forget to update the next cell `df = df1` with the variable from the generated code. In the image below, you can see that the code was inserted with `df_data_2`. You *Must* change the next cell to match, i.e `df = df_data_2`.
 
-> **IMPORTANT**: Don't forget to update the next cell `df = df1` with the variable from the generated code.
+![Generated code to handle Pandas DataFrame](../.gitbook/assets/images/wml/localFileInserted.png)
 
 Continue to run the remaining cells in the section to clean the data.
 
