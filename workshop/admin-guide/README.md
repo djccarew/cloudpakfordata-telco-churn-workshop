@@ -2,13 +2,27 @@
 
 > **NOTE**: This section requires `Admin` user access to the Cloud Pak for Data cluster. An administrator will present this part for the workshop.
 
+## Prerequisites
+
+* [Cloud Pak for Data (CPD) version 2.5]
+* [CPD installation of Db2 Warehouse]
+
 ## Virtualize Db2 data with Data Virtualization
 
 For this section we'll now use the Data Virtualization tool to import the data from Db2 Warehouse, which is now exposed as an Connection in Cloud Pak for Data.
 
 ## Load Data into Local DB2 Warehouse
 
-These instructions are for loading the data into the local CP4D version of DB2 Warehouse. They will be similar for the IBM Cloud version.
+These instructions are for loading the data into the local CPD version of DB2 Warehouse. They will be similar for the IBM Cloud version.
+You will need to provision the CPD version of DB2 Warehouse.
+
+* From any page, click the *Services* icon in the upper right corner:
+
+![Click services icon](../.gitbook/assets/images/admin/admin-click-services.png)
+
+* Click the `Data sources` category or scroll down, click the 3 vertical dots on the *Db2 Warehouse* tile, and click `Deploy`:
+
+![Click deploy Db2Warehouse](../.gitbook/assets/images/admin/admin-deploy-db2warehouse.png)
 
 You will need to already have done the `Provision instance` for DB2 Warehouse.
 Got to `Services` and click on `DB2 Warehouse` and click `Open`:
